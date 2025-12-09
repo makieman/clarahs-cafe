@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Clarah's Café</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/site.webmanifest">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <!-- Main Site Styles -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <!-- Gallery-specific Styles -->
+    <link rel="stylesheet" href="gallery.css">
+</head>
+
+<body>
+
+    <!-- Header Section Start -->
+    <!-- Header Section Start -->
+    <div class="rac_header_wrapper">
+        <div class="rac_container container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="rac_navbar">
+                        <div class="rac_logo">
+                            <a href="index.html">
+                                <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1763380315/logo_clarahs_pdialz.jpg"
+                                    class="img-fluid"
+                                    style="border-radius: 50%; width: 70px; height: 70px; object-fit: cover;">
+                            </a>
+                        </div>
+                        <div class="rac_nav_item">
+                            <ul>
+                                <div class="rac_res_logo">
+                                    <a href="index.html">
+                                        <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1763380315/logo_clarahs_pdialz.jpg"
+                                            class="img-fluid"
+                                            style="border-radius: 50%; width: 60px; height: 60px; object-fit: cover;">
+                                    </a>
+                                    <span>Clarah's cafe</span>
+                                </div>
+                                <li>
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li>
+                                    <a href="menu.html">menu</a>
+                                </li>
+                                <li>
+                                    <a class="active" href="gallery.html">Gallary</a>
+                                </li>
+                                <li>
+                                    <a href="events.html">Events</a>
+                                </li>
+                                <li>
+                                    <a href="contact.html">Contact Us</a>
+                                </li>
+                            </ul>
+                            <div class="rac_nav_btn">
+                                <ul>
+                                    <li>
+                                        <a href="javascript:void(0);" id="theme-toggle" title="Toggle Theme">
+                                            <!-- Sun Icon (for switching to Light Mode) -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-sun">
+                                                <circle cx="12" cy="12" r="5"></circle>
+                                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="reservation.html" class="rac_btn">Book a Table</a>
+                                    </li>
+                                </ul>
+                                <a href="javascript:void(0);" class="rac_toggle_btn">
+                                    <svg class="ham ham7" viewBox="0 0 100 100">
+                                        <path class="line top"
+                                            d="m 30,33 h 40 c 13.100415,0 14.380204,31.80258 6.899646,33.421777 -24.612039,5.327373 9.016154,-52.337577 -12.75751,-30.563913 l -28.284272,28.284272">
+                                        </path>
+                                        <path class="line middle"
+                                            d="m 70,50 c 0,0 -32.213436,0 -40,0 -7.786564,0 -6.428571,-4.640244 -6.428571,-8.571429 0,-5.895471 6.073743,-11.783399 12.286435,-5.570707 6.212692,6.212692 28.284272,28.284272 28.284272,28.284272">
+                                        </path>
+                                        <path class="line bottom"
+                                            d="m 69.575405,67.073826 h -40 c -13.100415,0 -14.380204,-31.80258 -6.899646,-33.421777 24.612039,-5.327373 -9.016154,52.337577 12.75751,30.563913 l 28.284272,-28.284272">
+                                        </path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header Section End -->
+
+    <!-- HERO SCROLL CONTAINER (Controls duration of animation) -->
+    <!-- 400vh = 4 scroll lengths to go through scenes -->
+    <div id="hero-scroll-container" style="height: 400vh; position: relative; z-index: 10;">
+
+        <!-- STICKY VIEWPORT (The actual visible area) -->
+        <div id="hero-sticky-view" style="position: sticky; top: 0; height: 100vh; overflow: hidden;">
+
+            <!-- SCENE 1: Blurred Interior (Intro) -->
+            <div class="hero-scene" data-scene="0" style="z-index: 1;">
+                <div class="scene-bg"
+                    style="background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&w=1600'); filter: blur(10px); transform: scale(1.1);">
+                </div>
+                <div class="scene-content">
+                    <h2 class="scene-title">Welcome to Clarahs</h2>
+                </div>
+            </div>
+
+            <!-- SCENE 2: The Ambiance (Sharper) -->
+            <div class="hero-scene" data-scene="1" style="z-index: 2; opacity: 0;">
+                <div class="scene-bg"
+                    style="background-image: url('https://ik.imagekit.io/4f15meuly/clarahs%20cafe%20%20image.jpg');">
+                </div>
+                <div class="scene-content">
+                    <h2 class="scene-title">Experience Luxury</h2>
+                    <p class="scene-subtitle">Where ambiance meets taste</p>
+                </div>
+            </div>
+
+            <!-- SCENE 3: The Details (Coffee/Food) -->
+            <div class="hero-scene" data-scene="2" style="z-index: 3; opacity: 0;">
+                <div class="scene-bg"
+                    style="background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&w=1600');">
+                </div>
+                <div class="scene-content">
+                    <h2 class="scene-title">Crafted Perfection</h2>
+                    <p class="scene-subtitle">Every cup tells a story</p>
+                </div>
+            </div>
+
+            <!-- SCENE 4: Final Call to Action -->
+            <div class="hero-scene" data-scene="3" style="z-index: 4; opacity: 0;">
+                <div class="scene-bg"
+                    style="background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&w=1600');">
+                </div>
+                <div class="scene-content">
+                    <h1 class="main-title">Clarah's Café Gallery</h1>
+                    <p class="main-subtitle">Explore our world</p>
+                    <button class="hero-cta"
+                        onclick="document.getElementById('gallery-grid').scrollIntoView({behavior: 'smooth'})">View
+                        Gallery</button>
+                </div>
+            </div>
+
+            <!-- FLOATING ELEMENTS (Global overlays) -->
+            <div class="hero-floats">
+                <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1764622590/c_igqrzb.png"
+                    class="float float-bean-1" alt="bean">
+                <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1764684000/coffee.jpg"
+                    class="float float-cup" alt="coffee">
+                <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1764622580/Gemini_Generated_Image_4rh4cn4rh4cn4rh4_6_iwekmg.png"
+                    class="float float-pastry" alt="pastry">
+            </div>
+
+            <!-- PROGRESS INDICATOR -->
+            <div class="scroll-progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GALLERY GRID SECTION -->
+    <section class="gallery-grid-section" id="gallery-grid">
+        <div class="container">
+            <h2 class="section-title">Moments at Clarah's</h2>
+            <p class="section-subtitle">A glimpse into our cozy café atmosphere</p>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1764622739/Gemini_Generated_Image_4rh4cn4rh4cn4rh4_nioq8d.png"
+                        alt="Breakfast">
+                    <div class="gallery-overlay">
+                        <h3>Delicious Breakfast</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1764622872/French_Toast_Delight_iqivhq.jpg"
+                        alt="French Toast">
+                    <div class="gallery-overlay">
+                        <h3>French Toast</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1764683121/grilled_pork_fymmoa.png"
+                        alt="Grilled Dishes">
+                    <div class="gallery-overlay">
+                        <h3>Main Courses</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1764684000/coffee.jpg" alt="Coffee">
+                    <div class="gallery-overlay">
+                        <h3>Premium Coffee</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1764684000/fresh_juice.jpg"
+                        alt="Fresh Juice">
+                    <div class="gallery-overlay">
+                        <h3>Fresh Juices</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1764622694/Gemini_Generated_Image_4rh4cn4rh4cn4rh4_2_evw8l5.png"
+                        alt="Fruits">
+                    <div class="gallery-overlay">
+                        <h3>Fresh Fruits</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/hero-animations.js"></script>
+</body>
+
+</html>

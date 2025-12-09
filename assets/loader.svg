@@ -1,0 +1,48 @@
+<svg width="150" height="180" viewBox="0 0 150 180" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Cup Outline -->
+  <rect x="30" y="40" width="90" height="120" rx="15" ry="15"
+        fill="none" stroke="#4A2C1F" stroke-width="6" />
+
+  <!-- Cup Handle -->
+  <path d="M120 70
+           C150 80, 150 120, 120 130"
+        fill="none" stroke="#4A2C1F" stroke-width="6" />
+
+  <!-- Coffee Fill -->
+  <rect x="36" y="150" width="78" height="0"
+        fill="#6B3F2A">
+    <animate attributeName="height"
+             from="0" to="90" dur="2s"
+             repeatCount="indefinite"
+             fill="freeze" />
+    <animate attributeName="y"
+             from="150" to="60" dur="2s"
+             repeatCount="indefinite"
+             fill="freeze" />
+  </rect>
+
+  <!-- Steam -->
+  <path d="M55 20 C45 10, 45 0, 55 -10"
+        stroke="#B7A9A1" stroke-width="3" fill="none">
+    <animate attributeName="opacity"
+             values="0;1;0" dur="2s"
+             repeatCount="indefinite" />
+  </path>
+
+  <path d="M75 20 C65 10, 65 0, 75 -10"
+        stroke="#B7A9A1" stroke-width="3" fill="none">
+    <animate attributeName="opacity"
+             values="0;1;0" dur="2s"
+             repeatCount="indefinite" />
+  </path>
+
+  <path d="M95 20 C85 10, 85 0, 95 -10"
+        stroke="#B7A9A1" stroke-width="3" fill="none">
+    <animate attributeName="opacity"
+             values="0;1;0" dur="2s"
+             repeatCount="indefinite" />
+  </path>
+
+</svg>
+

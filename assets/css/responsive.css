@@ -1,0 +1,823 @@
+/*============================ Min - Width Query ============================*/
+
+@media (min-width: 1500px) {
+    .rac_container {
+        max-width: 1532px;
+        padding-right: var(--bs-gutter-x, 0.5rem);
+        padding-left: var(--bs-gutter-x, 0.5rem);
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1200px;
+    }
+}
+
+/*============================ Max - Width Query ============================*/
+
+@media (max-width: 1875px) {
+    .rac_banner_content {
+        padding-left: 100px;
+    }
+}
+
+@media (max-width: 1700px) {
+
+    h3,
+    .rac_about_text h3 {
+        font-size: 1.8125rem;
+    }
+
+    .rac_app_text h3 {
+        font-size: 2.8125rem;
+    }
+
+    .rac_banner_wrapper::before,
+    .rac_about_wrapper::before,
+    .rac_offer_wrapper::before,
+    .rac_booking_wrapper::before,
+    .rac_chefs_wrapper::before,
+    .rac_footer_wrapper::before,
+    .rac_planning_wrapper::before {
+        top: 0;
+        background-size: contain;
+        background-position: center;
+        left: 0;
+    }
+
+    .rac_banner_content {
+        padding-left: 90px;
+        /* Adjust padding for smaller screens */
+    }
+
+    .rac_banner_text h1 {
+        font-size: 70px;
+    }
+
+    .rac_about_content::before {
+        background-size: 90%;
+        width: calc(314px * .9);
+        /* Scale down the width of the before pseudo-element */
+        height: 190px;
+        /* Adjust height of the before pseudo-element */
+        left: -105px;
+        /* Adjust left positioning of the before pseudo-element */
+    }
+
+    .rac_about_content::after {
+        background-size: 90%;
+        width: calc(356px * .9);
+        /* Scale down the width of the after pseudo-element */
+        height: 332px;
+        /* Adjust height of the after pseudo-element */
+        right: -190px;
+        /* Adjust right positioning of the after pseudo-element */
+    }
+
+    .rac_app_text {
+        max-width: 610px;
+        /* Limit the maximum width of the app text */
+    }
+}
+
+@media (max-width: 1499.98px) {
+
+    h3,
+    .rac_about_text h3 {
+        font-size: 1.75rem;
+    }
+
+    .rac_app_text h3 {
+        font-size: 2.5rem;
+    }
+
+    .rac_banner_content {
+        padding-left: 40px;
+        /* Adjust padding for smaller screens */
+    }
+
+    .rac_about_content::before {
+        background-size: 80%;
+        width: calc(314px * .8);
+        /* Scale down the width of the before pseudo-element */
+        height: 150px;
+        /* Adjust height of the before pseudo-element */
+        left: -85px;
+        /* Adjust left positioning of the before pseudo-element */
+    }
+
+    .rac_about_content::after {
+        background-size: 80%;
+        width: calc(356px * .8);
+        /* Scale down the width of the after pseudo-element */
+        height: 265px;
+        /* Adjust height of the after pseudo-element */
+        right: -180px;
+        /* Adjust right positioning of the after pseudo-element */
+    }
+}
+
+@media (max-width: 1399.98px) {
+
+    h3,
+    .rac_about_text h3 {
+        font-size: 1.6875rem;
+    }
+
+    h4,
+    .rac_offer_price h4,
+    .rac_menu_title h2 {
+        font-size: 1.1875rem;
+    }
+
+    .rac_app_text h3 {
+        font-size: 2.1875rem;
+    }
+
+    .rac_section {
+        padding: 80px 0;
+        /* Adjust section padding for smaller screens */
+    }
+
+    .rac_banner_wrapper {
+        padding: 130px 0 90px;
+        /* Adjust banner padding for smaller screens */
+    }
+
+    .rac_banner_content {
+        padding-left: unset;
+    }
+
+    .rac_banner_text h1 {
+        font-size: 62px;
+    }
+
+    .rac_about_content::before {
+        background-size: 70%;
+        width: calc(314px * .7);
+        /* Scale down the width of the before pseudo-element */
+        height: 115px;
+        /* Adjust height of the before pseudo-element */
+        left: -62px;
+        /* Adjust left positioning of the before pseudo-element */
+    }
+
+    .rac_about_content::after {
+        background-size: 70%;
+        width: calc(356px * .7);
+        /* Scale down the width of the after pseudo-element */
+        height: 202px;
+        /* Adjust height of the after pseudo-element */
+        right: -172px;
+        /* Adjust right positioning of the after pseudo-element */
+    }
+
+    .rac_service_box {
+        padding: 0 10px 15px;
+        max-width: 268px;
+        /* Limit the maximum width of the service box */
+    }
+
+    .rac_booking_wrapper {
+        padding-bottom: 0;
+    }
+
+    .rac_chefs_text {
+        padding: 30px 15px;
+    }
+
+    .grid-item {
+        width: calc(100% / 3);
+    }
+
+    .rac_inr_pages_banner {
+        padding: 120px 0 70px;
+        /* Adjust inner pages banner padding for smaller screens */
+    }
+
+    .rac_map_content iframe {
+        height: 500px;
+        /* Adjust map height for smaller screens */
+    }
+}
+
+@media (max-width: 1199.98px) {
+
+    h3,
+    .rac_about_text h3 {
+        font-size: 1.625rem;
+    }
+
+    .rac_app_text h3 {
+        font-size: 1.875rem;
+    }
+
+    .rac_banner_text h1,
+    .rac_page_title h1 {
+        font-size: 3.25rem;
+    }
+
+    .rac_nav_item,
+    .rac_nav_btn>ul {
+        gap: 40px;
+        /* Adjust spacing between navigation items */
+    }
+
+    .rac_nav_item>ul {
+        gap: 35px;
+        /* Adjust spacing between navigation items in the menu */
+    }
+
+    .rac_about_text {
+        padding: unset;
+    }
+
+    .rac_about_text p,
+    .rac_about_bottom {
+        margin-top: 10px;
+        /* Adjust top margin for about text and bottom section */
+    }
+
+    .rac_about_name h4 {
+        margin: 5px 0 0;
+        /* Adjust margin for about name heading */
+    }
+
+    .rac_about_name img {
+        max-height: 45px;
+        /* Limit the maximum height of the about name image */
+    }
+
+    .rac_about_bottom_img img {
+        max-height: 150px;
+        /* Limit the maximum height of the about bottom image */
+    }
+
+    .rac_offer_box {
+        flex-direction: column;
+    }
+
+    .rac_offer_content {
+        padding-left: 30px;
+        /* Adjust padding for offer content */
+        margin-left: auto;
+        margin-top: -95px;
+        /* Adjust top margin for offer content */
+        padding-top: 125px;
+        /* Adjust top padding for offer content */
+        text-align: center;
+    }
+
+    .rac_booking_img {
+        margin: auto;
+        display: flex;
+        height: 100%;
+        align-items: flex-end;
+    }
+
+    .rac_menu_title h2::before {
+        width: 90px;
+        /* Adjust width of the menu title pseudo-element */
+    }
+
+    .rac_app_text {
+        max-width: 430px;
+        /* Limit the maximum width of the app text */
+    }
+
+    .rac_inr_pages_banner {
+        padding: 120px 0 50px;
+        /* Adjust inner pages banner padding for smaller screens */
+    }
+
+    .rac_history_slider .swiper {
+        max-height: 100%;
+    }
+
+    .rac_history_slider .swiper-pagination {
+        flex-direction: row;
+        padding-bottom: 25px;
+        /* Adjust bottom padding for history slider pagination */
+    }
+
+    .rac_history_slider .swiper-pagination-bullet {
+        width: 100%;
+    }
+
+    .rac_history_slider .swiper-pagination-bullet::after {
+        right: 50%;
+        top: 40px;
+        /* Adjust top positioning of the history slider pagination bullet pseudo-element */
+    }
+
+    .rac_history_slider .swiper-pagination-bullet::before {
+        right: -50%;
+        height: 2px;
+        /* Adjust height of the history slider pagination bullet pseudo-element */
+        width: 100%;
+        top: 43px;
+        /* Adjust top positioning of the history slider pagination bullet pseudo-element */
+    }
+}
+
+@media (max-width: 991.98px) {
+
+    h3,
+    .rac_about_text h3,
+    .rac_app_text h3 {
+        font-size: 1.5625rem;
+        /* Equivalent to 25px */
+    }
+
+    h4,
+    .rac_offer_price h4,
+    .rac_menu_title h2 {
+        font-size: 1.125rem;
+        /* Equivalent to 18px */
+    }
+
+    .rac_section {
+        padding: 4.375rem 0;
+        /* Equivalent to 70px 0 */
+    }
+
+    .rac_toggle_btn,
+    .rac_res_logo {
+        display: block;
+    }
+
+    .rac_nav_item>ul {
+        position: fixed;
+        left: -17.5rem;
+        /* Hidden off-screen by default (280px) */
+        top: 0;
+        height: 100vh;
+        background-color: var(--rac-black-color);
+        width: 17.5rem;
+        /* Width of the mobile navigation menu (280px) */
+        padding: 1.875rem 1.25rem;
+        /* Padding for the mobile navigation menu (30px 20px) */
+        margin: 0;
+        z-index: 111;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -ms-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        flex-direction: column;
+        gap: 1.25rem;
+        /* Spacing between navigation items (20px) */
+    }
+
+    .menu-open .rac_nav_item>ul {
+        left: 0;
+    }
+
+    .rac_res_logo {
+        margin-bottom: 1.25rem;
+        /* Margin below the responsive logo (20px) */
+    }
+
+    .rac_nav_item>ul li a {
+        padding: 0 0 0.625rem;
+        /* Padding for navigation links (10px) */
+        width: 100%;
+        display: inline-flex;
+        border-bottom: 1px solid var(--rac-border-color);
+        justify-content: space-between;
+    }
+
+    .rac_nav_item>ul li a:hover,
+    .rac_nav_item>ul li a.active {
+        color: var(--rac-primary-color);
+        padding-left: 0.9375rem;
+        /* Padding for active/hovered navigation links (15px) */
+    }
+
+    .rac_nav_item>ul li a::after {
+        display: none;
+    }
+
+    .rac_nav_item>ul li a::before {
+        top: 50%;
+        -webkit-transform: rotate(90deg) translate(-0.5rem, 1.125rem);
+        /* Transform for navigation link pseudo-element (-8px, 18px) */
+        -moz-transform: rotate(90deg) translate(-0.5rem, 1.125rem);
+        -ms-transform: rotate(90deg) translate(-0.5rem, 1.125rem);
+        -o-transform: rotate(90deg) translate(-0.5rem, 1.125rem);
+        transform: rotate(90deg) translate(-0.5rem, 1.125rem);
+    }
+
+    .rac_nav_item>ul li a:hover::before,
+    .rac_nav_item>ul li a.active::before {
+        left: 5%;
+    }
+
+    .rac_banner_wrapper {
+        padding: 8.125rem 0 3.75rem;
+        /* Adjust banner padding for smaller screens (130px 0 60px) */
+    }
+
+    .rac_banner_img {
+        position: absolute;
+        bottom: 1.5625rem;
+        /* Adjust banner image bottom position (25px) */
+        right: -1.875rem;
+        /* Adjust banner image right position (-30px) */
+        max-width: 17.1875rem;
+        /* Limit banner image width (275px) */
+        -webkit-transform: rotate(75deg);
+        -moz-transform: rotate(75deg);
+        -ms-transform: rotate(75deg);
+        -o-transform: rotate(75deg);
+        transform: rotate(75deg);
+        opacity: .2;
+    }
+
+    .rac_banner_text {
+        text-align: center;
+    }
+
+    .rac_banner_text h1,
+    .rac_page_title h1 {
+        font-size: 3.125rem;
+        /* Adjust heading font size for banner and page titles (50px) */
+    }
+
+    .rac_banner_text p {
+        margin: 1.875rem auto;
+        /* Adjust paragraph margin in banner text (30px) */
+    }
+
+    .rac_banner_btn {
+        justify-content: center;
+        margin-top: 2rem;
+        /* Add spacing between text and CTA buttons (32px) */
+    }
+
+    .rac_about_text,
+    .rac_about_bottom {
+        padding: 0 1.875rem;
+        /* Adjust padding for about text and bottom section (30px) */
+    }
+
+    .rac_about_bottom {
+        margin-top: 1.25rem;
+        /* Adjust top margin for about bottom section (20px) */
+        padding-bottom: 0.9375rem;
+        /* Adjust bottom padding for about bottom section (15px) */
+    }
+
+    .rac_offer_img {
+        min-width: fit-content;
+        text-align: center;
+    }
+
+    .rac_offer_content {
+        margin-top: -5rem;
+        /* Adjust top margin for offer content (-80px) */
+        padding-top: 6.5625rem;
+        /* Adjust top padding for offer content (105px) */
+    }
+
+    .rac_offer_img img {
+        max-width: 10rem;
+        /* Limit offer image width (160px) */
+    }
+
+    .rac_booking_content>.row {
+        flex-direction: column-reverse;
+        row-gap: 0;
+    }
+
+    .rac_booking_img {
+        justify-content: center;
+        max-width: 21.875rem;
+        /* Limit booking image width (350px) */
+    }
+
+    .rac_menu_box {
+        flex-wrap: wrap;
+    }
+
+    .rac_chefs_slider .swiper-pagination {
+        bottom: 2.1875rem;
+        /* Adjust chefs slider pagination bottom position (35px) */
+    }
+
+    .rac_app_box {
+        flex-direction: column-reverse;
+        justify-content: center;
+        padding: 1.25rem;
+        /* Adjust app box padding (20px) */
+        text-align: center;
+    }
+
+    .rac_app_img {
+        margin: auto;
+    }
+
+    .rac_app_img img:last-child {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        opacity: .2;
+    }
+
+    .rac_app_stores {
+        justify-content: center;
+        margin-top: 0.9375rem;
+        /* Adjust margin for app stores (15px) */
+    }
+
+    .rac_footer_content {
+        margin-top: 1.25rem;
+        /* Adjust footer content top margin (20px) */
+    }
+
+    .rac_inr_pages_banner {
+        padding: 6.25rem 0 2.5rem;
+        /* Adjust inner pages banner padding (100px 0 40px) */
+    }
+
+    .rac_history_slider .swiper-pagination-bullet {
+        width: 100%;
+    }
+
+    .rac_history_slider .swiper-pagination-bullet::after {
+        right: 50%;
+        top: 2.5rem;
+        /* Adjust top positioning of history slider pagination bullet pseudo-element (40px) */
+    }
+
+    .rac_history_slider .swiper-pagination-bullet::before {
+        right: -50%;
+        height: 0.125rem;
+        /* Adjust height of history slider pagination bullet pseudo-element (2px) */
+        width: 100%;
+        top: 2.6875rem;
+        /* Adjust top positioning of history slider pagination bullet pseudo-element (43px) */
+    }
+
+    .rac_map_content iframe {
+        height: 25rem;
+        /* Adjust map height (400px) */
+    }
+
+    .rac_planning_img img {
+        max-width: 28.125rem;
+        /* Limit planning image width (450px) */
+    }
+}
+
+
+@media (max-width: 767.98px) {
+
+    h3,
+    .rac_about_text h3,
+    .rac_app_text h3 {
+        font-size: 1.5rem;
+    }
+
+    .rac_banner_wrapper {
+        min-height: 85vh;
+    }
+
+    .rac_about_text,
+    .rac_about_bottom {
+        padding: 0 0.9375rem;
+        /* Adjust padding for about text and bottom section (15px) */
+    }
+
+    .rac_offer_content {
+        margin-top: -4.6875rem;
+        /* Adjust top margin for offer content (-75px) */
+        padding-top: 6.25rem;
+        /* Adjust top padding for offer content (100px) */
+    }
+
+    .rac_offer_img img {
+        max-width: 9.375rem;
+        /* Limit offer image width (150px) */
+    }
+
+    .rac_booking_img {
+        max-width: 15.625rem;
+        /* Limit booking image width (250px) */
+    }
+
+    .rac_menu_title h2::before {
+        display: none;
+    }
+
+    .rac_chefs_box,
+    .rac_chefs_social {
+        max-width: 18.125rem;
+        /* Limit chefs box and social width (290px) */
+        margin: auto;
+    }
+
+    .rac_chefs_slider .swiper-pagination {
+        bottom: 1.5625rem;
+        /* Adjust chefs slider pagination bottom position (25px) */
+    }
+
+    .rac_testimonial_slider .swiper::after {
+        display: none;
+    }
+
+    .grid-item {
+        width: calc(100% / 2);
+    }
+
+    .rac_footer_content {
+        margin-top: 0;
+    }
+
+    .rac_map_content iframe {
+        height: 18.75rem;
+        /* Adjust map height (300px) */
+    }
+
+    .rac_plan_box.right:nth-child(2) {
+        padding-left: 1.875rem;
+        /* Adjust left padding for planning box (30px) */
+    }
+
+    .rac_plan_box.left:nth-child(2) {
+        padding-right: 1.875rem;
+        /* Adjust right padding for planning box (30px) */
+    }
+
+    .rac_history_slider .swiper-pagination-bullet {
+        font-size: 1rem;
+        /* Equivalent to 16px */
+    }
+
+    .rac_history_img {
+        max-height: 18.75rem;
+        /* Limit history image height (300px) */
+    }
+}
+
+@media (max-width: 575.98px) {
+    body {
+        font-size: 0.875rem;
+    }
+
+    h3,
+    .rac_about_text h3,
+    .rac_app_text h3 {
+        font-size: 1.25rem;
+    }
+
+    h4,
+    .rac_offer_price h4,
+    .rac_menu_title h2 {
+        font-size: 1rem;
+    }
+
+    .rac_section {
+        padding: 3.125rem 0;
+        /* Adjust section padding for smaller screens (50px) */
+    }
+
+    .rac_section_heading h3::before,
+    .rac_section_heading h3::after {
+        display: none;
+    }
+
+    .rac_btn,
+    .rac_form_btn .rac_btn {
+        min-width: 6.25rem;
+        /* Minimum width for buttons (100px) */
+        min-height: 2.5rem;
+        /* Minimum height for buttons (40px) */
+    }
+
+    .rac_banner_text h1,
+    .rac_page_title h1 {
+        font-size: 2.5rem;
+        /* Adjust heading font size for banner and page titles (40px) */
+    }
+
+    .rac_nav_btn>ul {
+        gap: 1.25rem;
+        /* Adjust spacing between navigation items (20px) */
+    }
+
+    .rac_about_text,
+    .rac_about_bottom {
+        padding: unset;
+    }
+
+    .rac_about_bottom_img {
+        margin-bottom: -0.9375rem;
+        /* Adjust bottom margin for about bottom image (-15px) */
+    }
+
+    .rac_about_bottom_img img {
+        max-height: 6.875rem;
+        /* Limit about bottom image height (110px) */
+    }
+
+    .rac_offer_content {
+        margin-top: -4.375rem;
+        /* Adjust top margin for offer content (-70px) */
+        padding-top: 5.625rem;
+        /* Adjust top padding for offer content (90px) */
+    }
+
+    .rac_offer_img img {
+        max-width: 8.75rem;
+        /* Limit offer image width (140px) */
+    }
+
+    .rac_offer_text h4 {
+        margin-bottom: 0.3125rem;
+        /* Adjust bottom margin for offer text heading (5px) */
+    }
+
+    .rac_offer_rating img {
+        max-width: 1rem;
+        /* Limit offer rating image width (16px) */
+    }
+
+    .rac_chefs_slider .swiper-pagination {
+        bottom: 1.25rem;
+        /* Adjust chefs slider pagination bottom position (20px) */
+    }
+
+    .grid-item {
+        width: 100%;
+    }
+
+    .rac_inr_pages_banner {
+        padding: 5.625rem 0 1.875rem;
+        /* Adjust inner pages banner padding (90px 0 30px) */
+    }
+
+    .rac_plan_box.right:nth-child(2) {
+        padding-left: unset;
+    }
+
+    .rac_plan_box.left:nth-child(2) {
+        padding-right: unset;
+    }
+
+    .rac_plan_box,
+    .rac_plan_box.left {
+        text-align: center;
+    }
+
+    .rac_plan_box .rac_plan_title,
+    .rac_plan_box.left .rac_plan_title {
+        justify-content: center;
+    }
+
+    .rac_plan_text,
+    .rac_plan_box.left .rac_plan_text {
+        margin: 0.9375rem auto 0;
+        /* Adjust margin for plan text (15px) */
+    }
+
+    .rac_planning_img img {
+        max-width: 80%;
+    }
+
+    .rac_history_slider .swiper-pagination-bullet {
+        font-size: 0.875rem;
+        /* Equivalent to 14px */
+    }
+}
+
+@media (max-width: 399.98px) {
+
+    .rac_banner_text h1,
+    .rac_page_title h1 {
+        font-size: 2rem;
+        /* Adjust heading font size for banner and page titles (32px) */
+    }
+
+    .rac_about_bottom_img img {
+        max-height: 5rem;
+        /* Limit about bottom image height (80px) */
+    }
+
+    .rac_offer_content {
+        padding: 5.625rem 0.9375rem 1.5625rem 0.9375rem;
+        /* Adjust padding for offer content (90px 15px 25px 15px) */
+    }
+
+    .rac_booking_img {
+        max-width: 12.5rem;
+        /* Limit booking image width (200px) */
+    }
+
+    .rac_planning_img img {
+        max-width: 100%;
+    }
+}

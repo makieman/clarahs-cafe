@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reserve a Table - Clarah’s Café</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/site.webmanifest">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <!-- Bootstrap CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/responsive.css" rel="stylesheet">
+</head>
+
+<body class="reservation-page">
+
+    <!-- Sticky Glass Navbar -->
+    <nav class="reservation-nav">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <!-- Brand -->
+                <div class="rac_logo">
+                    <a href="index.html" class="text-decoration-none">
+                        Clarah’s Café
+                    </a>
+                </div>
+                <!-- Call to Action -->
+                <div class="rac_nav_btn">
+                    <a href="index.html" class="rac_btn" style="border-radius: 50px; padding: 10px 25px;">
+                        Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container-fluid p-0">
+        <!-- Full Screen Booking Widget -->
+        <section class="iframe-wrap">
+            <!-- Loader Overlay -->
+            <div id="loader" class="loader-overlay">
+                <div class="spinner-border text-danger" role="status" style="width: 3rem; height: 3rem;">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="mt-3 text-muted" style="font-weight: 500;">Loading booking widget...</p>
+
+                <!-- Fallback Link inside loader so it's accessible if loading takes time -->
+                <div class="mt-4">
+                    <a href="https://eatapp.co/reserve/34kpjcqfbpp-a3h-6beef3" target="_blank"
+                        class="text-muted text-decoration-underline" style="font-size: 0.9rem;">
+                        Having trouble? Open in new tab
+                    </a>
+                </div>
+            </div>
+
+            <!-- Booking Widget Iframe -->
+            <iframe id="bookingIframe" class="booking-iframe" src="https://eatapp.co/reserve/34kpjcqfbpp-a3h-6beef3"
+                title="Restaurant booking widget" allowfullscreen loading="lazy"
+                sandbox="allow-scripts allow-forms allow-same-origin allow-popups">
+            </iframe>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const iframe = document.getElementById('bookingIframe');
+        const loader = document.getElementById('loader');
+
+        // Fade out loader when iframe loads
+        iframe.addEventListener('load', () => {
+            loader.classList.add('fade-out');
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        });
+
+        // Fallback safety: if load event doesn't fire or takes too long (e.g. 8s), fade out anyway
+        setTimeout(() => {
+            if (!loader.classList.contains('fade-out')) {
+                loader.classList.add('fade-out');
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }
+        }, 8000);
+    </script>
+</body>
+
+</html>
