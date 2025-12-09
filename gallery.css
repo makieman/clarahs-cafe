@@ -302,9 +302,14 @@ html[data-theme="light"] .gallery-overlay {
 
 @media (max-width: 768px) {
     .hero-text {
-        left: 5%;
-        right: 5%;
+        /* Center hero text on mobile/tablet for better layout */
+        left: 50%;
+        right: auto;
         bottom: 15%;
+        transform: translate(-50%, 50px);
+        text-align: center;
+        max-width: 90%;
+        width: auto;
     }
 
     .fg .coffee {
@@ -393,7 +398,7 @@ html[data-theme="light"] #hero-sticky-view {
     /* Smooth movement */
 }
 html[data-theme="light"] .scene-bg {
-    box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.2);
+        box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.6);
 }
 
 .scene-content {

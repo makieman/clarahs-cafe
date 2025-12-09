@@ -456,6 +456,33 @@ p {
     background-repeat: no-repeat;
 }
 
+/* Subtle overlay to improve text contrast over the banner image */
+.rac_banner_wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 0;
+}
+
+/* Make overlay slightly stronger in light mode to ensure readability */
+html[data-theme="light"] .rac_banner_wrapper::after {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* Fix menu page hero text in light mode: elements that use the
+   utility class `text-white` should become dark in light theme */
+html[data-theme="light"] .text-white {
+    color: var(--rac-heading-color) !important;
+    text-shadow: none !important;
+}
+
+/* Make the menu page hero overlay lighter in light theme but keep
+   text readable (we override inline styles from `menu.html`) */
+html[data-theme="light"] .hero-bg-overlay {
+    background: linear-gradient(135deg, rgba(255,255,255,0.45) 0%, rgba(249,249,249,0.45) 100%) !important;
+}
+
 @keyframes circlular {
     from {
         -webkit-transform: rotate(0deg) translate(-0.75rem) rotate(0deg);
@@ -485,7 +512,6 @@ p {
 
 .rac_banner_text h1 {
     font-size: 5rem;
-    /* 80px / 16px = 5rem */
     font-weight: 700;
     color: var(--rac-white-color);
     line-height: 1.25;
@@ -517,6 +543,47 @@ p {
     background: transparent;
     color: var(--rac-white-color);
     border: 1px solid var(--rac-white-color);
+}
+
+/* Banner layout: stack vertically & center content on smaller viewports */
+.rac_banner_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.rac_banner_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-text {
+    color: var(--rac-primary-color);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 1.2rem; /* Increased from 13px to 1.2rem (approx. 19.2px) */
+    margin-bottom: 8px;
+    font-weight: 500;
+    /* Use the same display/font as the hero H1 */
+    font-family: "Merienda", cursive;
+}
+
+@media (max-width: 991px) {
+    .rac_banner_content {
+        text-align: center;
+        align-items: center;
+        padding-left: 1rem; /* reduce large desktop left padding */
+    }
+
+    .rac_banner_btn {
+        justify-content: center;
+    }
+
+    .rac_banner_img {
+        margin-top: 30px;
+    }
 }
 
 /********************************************************
