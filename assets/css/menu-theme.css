@@ -1,0 +1,55 @@
+/* Menu Page Independent Theme Styling */
+
+/* Light Mode Overrides for Menu Page specifically */
+[data-menu-theme="light"] {
+    --rac-font-color: #555555;
+    --rac-heading-color: #212529;
+    --rac-bg-color: #ffffff;
+    --rac-section-bg-color: #f9f9f9;
+    --rac-card-bg-color: #ffffff;
+    --rac-border-color: #e5e5e5;
+    --rac-header-bg: rgb(255 255 255 / 90%);
+    --rac-input-bg: #f5f5f5;
+    --rac-black-color: #ffffff;
+    /* Invert black to white for backgrounds */
+}
+
+/* Hero Section Background Toggle */
+/* Default (Dark) */
+.rac_banner_wrapper {
+    background-image: url("https://ik.imagekit.io/4f15meuly/Gemini_Generated_Image_rgw9qfrgw9qfrgw9.png?updatedAt=1765536742062");
+}
+
+/* Light Mode Override */
+[data-menu-theme="light"] .hero-bg-image {
+    background-image: url("https://ik.imagekit.io/4f15meuly/clarahs%20cafe%20%20image.jpg?updatedAt=1765279438121") !important;
+}
+
+[data-menu-theme="light"] .hero-bg-overlay {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Filter Button Light Mode */
+[data-menu-theme="light"] .rac_menu_tab li .rac_btn:hover,
+[data-menu-theme="light"] .rac_menu_tab li .rac_btn.active {
+    background: var(--rac-primary-color);
+    border: 1px solid var(--rac-primary-color);
+    color: #ffffff;
+}
+
+/* Theme Toggle Button Styling */
+#menu-theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: var(--rac-heading-color);
+    transition: color 0.3s ease;
+}
+
+#menu-theme-toggle:hover {
+    color: var(--rac-primary-color);
+}

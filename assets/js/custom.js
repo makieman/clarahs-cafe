@@ -28,7 +28,7 @@ Project: Restaurant and Catering html
             this.gallery_grid();
             this.formValidation();
             this.copy_right();
-            this.theme_toggle();
+
         },
 
         /*-------------- Restaurant and Catering Functions Calling ---------------------------------------------------
@@ -348,7 +348,7 @@ Project: Restaurant and Catering html
                         } else {
                             errroTarget.html('<p style="color:red;">Something went wrong please try again latter.</p>');
                         }
-                    }).fail(function() {
+                    }).fail(function () {
                         errroTarget.html('<p style="color:red;">Something went wrong please try again latter.</p>');
                     });
                 }
@@ -361,65 +361,26 @@ Project: Restaurant and Catering html
         copy_right: function () {
             document.getElementById("copyYear").innerHTML = new Date().getFullYear();
         },
-        /*-----------------------------------------------------
-            Theme Toggle
-        -----------------------------------------------------*/
-        theme_toggle: function () {
-            jQuery(document).ready(function () {
-                const toggleBtn = jQuery('#theme-toggle');
-                const htmlElement = jQuery('html');
 
-                const sunIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
-                const moonIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
-
-                // Apply saved theme on page load (fallback to system preference)
-                const savedTheme = localStorage.getItem('theme');
-                if (savedTheme) {
-                    htmlElement.attr('data-theme', savedTheme);
-                    toggleBtn.html(savedTheme === 'dark' ? sunIcon : moonIcon);
-                } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    htmlElement.attr('data-theme', 'dark');
-                    toggleBtn.html(sunIcon);
-                } else {
-                    htmlElement.attr('data-theme', 'light');
-                    toggleBtn.html(moonIcon);
-                }
-
-                // Toggle theme on click
-                toggleBtn.on('click', function () {
-                    const currentTheme = htmlElement.attr('data-theme');
-                    if (currentTheme === 'light') {
-                        htmlElement.attr('data-theme', 'dark');
-                        localStorage.setItem('theme', 'dark');
-                        toggleBtn.html(sunIcon);
-                    } else {
-                        htmlElement.attr('data-theme', 'light');
-                        localStorage.setItem('theme', 'light');
-                        toggleBtn.html(moonIcon);
-                    }
-                });
-            });
-        },
     };
     Catering.init();
 })(jQuery);
-        const iframe = document.getElementById('bookingIframe');
-        const loader = document.getElementById('loader');
+const iframe = document.getElementById('bookingIframe');
+const loader = document.getElementById('loader');
 
-        // When iframe loads, hide loader. If cross-origin, "load" still fires.
-        iframe.addEventListener('load', () => {
-            loader.classList.add('hidden');
-        });
+// When iframe loads, hide loader. If cross-origin, "load" still fires.
+iframe.addEventListener('load', () => {
+    loader.classList.add('hidden');
+});
 
-        // If embedding blocked, the iframe may remain empty. Provide visual hint:
-        // After 6 seconds, if iframe height is small or still shows blank, show fallback button more prominently.
-        setTimeout(() => {
-            // Heuristic: if the iframe contentWindow length can't be accessed (cross-origin) skip; we test by checking computed style
-            const rect = iframe.getBoundingClientRect();
-            if (rect.height < 200) {
-                // show fallback more clearly (you can change behaviour)
-                document.getElementById('openNewTab').classList.remove('btn-outline-primary');
-                document.getElementById('openNewTab').classList.add('btn-primary');
-            }
-        }, 6000);
-    
+// If embedding blocked, the iframe may remain empty. Provide visual hint:
+// After 6 seconds, if iframe height is small or still shows blank, show fallback button more prominently.
+setTimeout(() => {
+    // Heuristic: if the iframe contentWindow length can't be accessed (cross-origin) skip; we test by checking computed style
+    const rect = iframe.getBoundingClientRect();
+    if (rect.height < 200) {
+        // show fallback more clearly (you can change behaviour)
+        document.getElementById('openNewTab').classList.remove('btn-outline-primary');
+        document.getElementById('openNewTab').classList.add('btn-primary');
+    }
+}, 6000);
