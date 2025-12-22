@@ -86,8 +86,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
         render(state.currentProgress);
 
+        // Run Gallery Parallax locally here too
+        if (!state.isMobile) {
+            galleryParallax();
+        }
+
         state.rafId = requestAnimationFrame(update);
     }
+
+    // --- Gallery Parallax Logic ---
+    function galleryParallax() {
+        // Logic from Plan Option B
+        const galleryItems = document.querySelectorAll(".gallery-item img");
+        if (!galleryItems.length) return;
+
+        const scrollTop = window.scrollY;
+        const viewportHeight = window.innerHeight;
+
+        galleryItems.forEach((img, index) => {
+            const rect = img.parentElement.getBoundingClientRect();
+            // Only animate when in view
+            if (rect.bottom > 0 && rect.top < viewportHeight) {
+                const elementTop = rect.top + scrollTop; // Absolute top
+                const distance = (scrollTop + viewportHeight - elementTop);
+
+                // Option B: Direction Variation (Premium)
+                // Speed variations
+                const speed = 0.025 + (index % 5) * 0.005;
+                // Direction: Even index moves up, Odd index moves down
+                const direction = index % 2 === 0 ? 1 : -1;
+
+                img.style.transform = `translateY(${distance * speed * direction}px) scale(1.15)`;
+            }
+        });
+    }
+
 
     // --- Render Scenes ---
     function render(progress) {
@@ -96,151 +129,128 @@ document.addEventListener('DOMContentLoaded', () => {
             progressBar.style.width = `${progress * 100}%`;
         }
 
-        // 2. Determine Scenes
-        // We have N scenes. Divide progress into slots.
-        // e.g. 4 Scenes. 
-        // Scene 0: 0.0 - 0.25
-        // Scene 1: 0.25 - 0.50
-        // ...
-
-        const numScenes = scenes.length;
-        const segmentSize = 1 / numScenes;
+        /* 
+           REFINED SCENE TIMING
+           We have 4 Scenes (indices 0, 1, 2, 3).
+           Total Progress: 0.0 to 1.0.
+           
+           Scene 0 (Intro): 0.0 - 0.20
+           Scene 1 (Luxury): 0.20 - 0.50 (Longer hold)
+           Scene 2 (Details): 0.50 - 0.75
+           Scene 3 (CTA): 0.75 - 1.0
+        */
 
         scenes.forEach((scene, index) => {
             const bg = scene.querySelector('.scene-bg');
             const content = scene.querySelector('.scene-content');
-
-            // Scene Logic
-            // We want scenes to fade in/out.
-            // Scene I is fully visible at (index * segmentSize).
-            // It fades out as we move to (index+1).
-
-            // Let's use a "Focus" curve.
-            // Peak visibility at the center of its segment? 
-            // OR: Sequential stack. Scene 0 is bottom. Scene 1 fades in over it. Scene 2 over 1.
-            // This is better for "Reveal".
-
-            // Stack logic:
-            // Scene 0: Always Scale/Blur changes. Visible base.
-            // Scene 1: Fades in from 0.0 to 0.25 (or start defined by index)
-
-            // Revised Logic for "Adaline" feel:
-            // Transition happens AT the boundary.
-            // Scene 0 -> Scene 1 transition happens between 0.0 and 0.33 (if 4 scenes)
-
-            // Let's make it simpler:
-            // Each scene (except 0) has an opacity driven by progress.
-            // Scene N opacity = map(progress, start, end)
+            const title = scene.querySelector('.scene-title');
+            const subtitle = scene.querySelector('.scene-subtitle'); // Might be null
 
             let sceneOpacity = 0;
-            let scale = 1.1; // default zoomed out
-            let blur = 10;
+            let textOpacity = 0;
+            let activeScale = 1.1;
 
-            // Timings (overlaps allowed)
-            // Scene 0: Visible 0-0.25. (Fades OUT after 0.25?) 
-            // Actually, usually subsequent scenes cover the previous ones.
-            // So Scene 0 stays opacity 1. Scene 1 fades in over it.
+            // Define timing windows for each scene
+            let start, end, peakStart, peakEnd;
 
             if (index === 0) {
-                sceneOpacity = 1; // Base layer
-                // Animate BG props
-                // 0 -> 0.25: Scale 1.1 -> 1.0. Blur 10 -> 0.
-                // But Scene 0 is start.
-                // Let's say Scene 0 is the "Intro" (Blurry).
-                // As we scroll, Scene 0 clarifies?
+                // Scene 0: Visible from start, fades out around 0.2
+                start = 0.0;
+                end = 0.25;
+                // It is base layer, always opacity 1 technically, but we can fade it out to black or let next scene cover
+                sceneOpacity = 1;
+                textOpacity = 1 - (progress * 4); // Fades out quickly by 0.25
+            }
+            else if (index === 1) {
+                // Scene 1: "Experience Luxury"
+                // Needs to appear, STAY, then fade.
+                start = 0.15;
+                end = 0.55;
 
-                // Let's follow prompt: "Scene transitions use opacity + subtle zoom"
-                // "Scene fades out, Next scene fades in"
+                // Opacity Ramp Up: 0.15 - 0.25
+                // Hold: 0.25 - 0.45
+                // Fade Out: 0.45 - 0.55 (Covered by next)
 
-                // Let's treat them as sequential crossfades.
-                // Center of Scene 0 is progress 0.0. Center of Scene 1 is 0.33. center of Scene 3 is 1.0.
+                if (progress < start) sceneOpacity = 0;
+                else if (progress < 0.25) sceneOpacity = (progress - start) / 0.10;
+                else sceneOpacity = 1; // Stays visible until covered
 
-                // Opacity Calculation
-                // A generic bell curve or plateau for each scene based on progress
+                // Text Staggered Fade In
+                // Text starts appearing LATER (at 0.35) so image has 10% scroll duration alone
+                if (progress < 0.35) textOpacity = 0;
+                else if (progress < 0.45) textOpacity = (progress - 0.35) / 0.10;
+                else if (progress < 0.50) textOpacity = 1; // Hold text briefly
+                else textOpacity = 1 - ((progress - 0.50) / 0.1); // Fade text out manually before scene change
+            }
+            else if (index === 2) {
+                // Scene 2: "Details"
+                start = 0.50;
+                end = 0.8;
+
+                if (progress < start) sceneOpacity = 0;
+                else if (progress < 0.60) sceneOpacity = (progress - start) / 0.10;
+                else sceneOpacity = 1;
+
+                // Text
+                if (progress < 0.60) textOpacity = 0;
+                else if (progress < 0.70) textOpacity = (progress - 0.60) / 0.10;
+                else textOpacity = 1;
+            }
+            else if (index === 3) {
+                // Scene 3: "Final"
+                start = 0.75;
+                end = 1.0;
+
+                if (progress < start) sceneOpacity = 0;
+                else if (progress < 0.85) sceneOpacity = (progress - start) / 0.10;
+                else sceneOpacity = 1;
+
+                // Text
+                if (progress < 0.85) textOpacity = 0;
+                else if (progress < 0.95) textOpacity = (progress - 0.85) / 0.10;
+                else textOpacity = 1;
             }
 
-            // PROMPT SPECIFIC:
-            // Scene 1: 0.00 -> 0.25
-            // Scene 2: 0.25 -> 0.50
-            // ...
-
-            const start = index * segmentSize;
-            const end = (index + 1) * segmentSize;
-
-            // In range?
-            // We want distinct transitions. 
-            // At progress = 0. We see Scene 0.
-            // At progress = 0.25. We see Scene 1 (Scene 0 faded out or Scene 1 faded in).
-
-            // Smooth Reveal: Scene `i` opacity ramps 0->1 as progress goes from `start-0.05` to `start+0.05`? 
-            // Simpler:
-            // Scene 0: Opacity 1 (Base).
-            // Scene 1: Opacity = (progress - 0.2) * 5 ... clamped 0-1.
-            // Scene 2: Opacity = (progress - 0.45) * 5 ...
-
-            // Let's normalize progress for this specific scene's entry.
-            // Entry point: `start`.
-            // Transition duration: half a segment?
-
-            // Logic: All scenes absolute. 
-            // Update styles based on: Is this scene active?
-
-            // BETTER APPROACH for "Appearing":
-            // Opacity = 0 initially.
-            // If progress > start, opacity ramps up.
-            // If progress > end, opacity ramps down? (Or stays 1 if it's the new background).
-            // Usually in scroll-jacking, the new scene COVERS the old one. So we don't need to fade out the old one.
-            // We just fade in the new one on top.
-
-            if (index === 0) {
-                sceneOpacity = 1; // Always visible at bottom
-            } else {
-                // Fade in as we approach its start time
-                // e.g. Scene 1 starts at 0.25.
-                // We want it to start fading in at 0.15 and be done by 0.25.
-
-                // entry progress
-                const fadeStart = start - (segmentSize * 0.5);
-                const fadeEnd = start;
-
-                // Map currentProgress to 0-1 within fadeStart/fadeEnd
-                let fadeP = (progress - fadeStart) / (fadeEnd - fadeStart);
-                sceneOpacity = Math.max(0, Math.min(1, fadeP));
-            }
 
             // Apply Styles
             scene.style.opacity = sceneOpacity;
 
-            // Parallax / Zoom effect for active scene
-            // If scene is becoming visible or is visible
-            // Scale starts at 1.1, goes to 1.0 as it settles.
-
-            // Scale logic: 
-            // Scale = 1.1 - (0.1 * normalizedSceneProgress)
-            // Normalized progress for scene duration:
-            const sceneP = (progress - (start - segmentSize)) / (segmentSize * 2);
-            // Simple rough lerp for movement
-
-            const activeScale = 1.1 - (0.1 * Math.min(1, Math.max(0, sceneP)));
-
-            // Blur logic: 10px -> 0px
-            const activeBlur = 10 * (1 - Math.min(1, Math.max(0, sceneP * 2))); // Blur clears quickly
+            // Parallax scale for active scene
+            // Slight Zoom In effect as you scroll through it
+            // Normalize progress for this scene
+            if (index > 0) {
+                activeScale = 1.1 + (0.05 * progress); // Subtle continuous zoom
+            }
 
             if (bg) {
                 bg.style.transform = `scale(${activeScale})`;
-                // bg.style.filter = `blur(${activeBlur}px)`; // Filter is expensive, use cautiously
-                // Use opacity for performance on mobile
-                if (!state.isMobile) {
-                    // bg.style.filter = `blur(${activeBlur}px)`;
-                }
             }
 
             // Content Transform (Lift up)
             if (content) {
-                const lift = 50 * (1 - sceneOpacity); // Starts 50px down, moves to 0
-                content.style.transform = `translateY(${lift}px)`;
-                content.style.opacity = sceneOpacity; // Sync text opacity
+                // Slight parallax lift for text
+                const lift = -30 * progress;
+                // content.style.transform = `translateY(${lift}px)`;
+
+                // Use opacity calculated above for text specific elements if we want STAGGER
+                // But container also fades. 
+                // Let's override container opacity for children if we want them to hide while container is vis?
+                // No, container opacity clips children.
+                // So sceneOpacity controls BG and Content container visibility.
+
+                // WAIT: If we want text to fade in AFTER BG, sceneOpacity must be 1 (for BG) but text hidden?
+                // Structure is: .hero-scene > .scene-bg AND .scene-content
+                // So we can control them independently.
             }
+
+            // Apply independent text params
+            if (content) {
+                content.style.opacity = textOpacity;
+                // Add subtle slide up
+                const slide = 20 * (1 - textOpacity);
+                content.style.transform = `translateY(${slide}px)`;
+            }
+
         });
 
         // 3. Floating Elements (Global Animation)
